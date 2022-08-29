@@ -9,8 +9,16 @@ ___
 ![CSS3](https://img.shields.io/badge/-CSS3-007ACC?style=for-the-badge&logo=css3)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=for-the-badge&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A)
 ![R](https://img.shields.io/badge/R-programming-blue)
-
-  
+<table>
+  <tr>
+    <td align="center" width="96">
+        <a href="#macropower-tech">
+          <img src="./img/python-original.svg" width="48" height="48" alt="Python" />
+        </a>
+        <br>Python
+     </td>
+   </tr>
+</table>
 
 ### 🏃‍♀️ My work experience
 ___
