@@ -1,4 +1,4 @@
-## Hello, I am Yu Rim
+## Hello, I am Choi Yu Rim
 
   
 ### 🛠 My skillset
