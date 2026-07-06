@@ -9,10 +9,9 @@
 | 모델/검증 | `pydantic` v2 | API 응답 정규화 + 설정 스키마 검증 겸용 |
 | 스케줄러 | `APScheduler` | 폴링 주기·장 시간 크론 관리 |
 | 저장소 | SQLite (`sqlmodel`) | 단일 파일, 백업 쉬움, 개인용에 충분 |
-| UI (MVP) | **Streamlit** | 한 화면 대시보드를 가장 빨리 구현 |
-| UI (2단계) | FastAPI + React/Next.js | Streamlit 한계(세밀한 실시간 갱신) 도달 시 교체 |
+| UI | **웹 (확정)** — FastAPI 백엔드 + React/Next.js 프론트 | 사용자 결정. WebSocket(또는 SSE)으로 시세·포지션 실시간 푸시 |
 
-Streamlit → FastAPI 교체가 가능하려면 **UI가 서비스 계층 함수만 호출**하고 비즈니스 로직을 갖지 않아야 한다 (아래 계층 규칙).
+웹 UI 구성: FastAPI가 서비스 계층을 REST(`/portfolio`, `/rules`, `/logs`, `/settings`) + WebSocket(`/stream` — 시세·주문 이벤트)으로 노출하고, React 대시보드가 이를 소비한다. UI는 서비스 계층 함수만 호출하고 비즈니스 로직을 갖지 않는다 (아래 계층 규칙). 미국장 시간 동안 상시 구동해야 하므로(스톱 감시, strategy.md §4) 서버 프로세스(엔진+API)와 브라우저(뷰)가 분리된 웹 구조가 요구사항과도 맞다.
 
 토스 API 클라이언트는 공식 `openapi.json`으로 `openapi-generator` 자동 생성 후 얇은 래퍼를 씌우는 방식 권장 (스펙 변경 추적이 쉬움).
 
@@ -54,8 +53,9 @@ src/
   models/     position.py  quote.py  order.py  rule.py  financials.py
   storage/    db.py  repositories.py
   config/     settings.py (pydantic-settings)  config.yaml
-  ui/         dashboard.py  pages/
+  api/        app.py  routes/  ws.py      # FastAPI
   scheduler/  jobs.py
+web/          # React/Next.js 대시보드
 tests/
 ```
 

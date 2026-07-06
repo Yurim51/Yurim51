@@ -17,7 +17,10 @@
 
 - [docs/requirements.md](docs/requirements.md) — 기능별 요구사항 구체화 (무엇을 만들지)
 - [docs/architecture.md](docs/architecture.md) — 시스템 아키텍처 & 프로세스 설계 (어떻게 만들지)
+- [docs/strategy.md](docs/strategy.md) — 매매 규칙 설계 v0.1 (미국 스윙, 1% 리스크, 연 80% 목표의 분해)
 - [docs/roadmap.md](docs/roadmap.md) — 단계별 개발 로드맵 (어떤 순서로 만들지)
+
+확정된 방향: **웹 UI (FastAPI + React)** · **미국 시장 우선** · **스윙 매매** · **1회 리스크 = 자본의 1%**
 
 ## 전제 조건
 
